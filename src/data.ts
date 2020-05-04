@@ -1,4 +1,9 @@
-const books = [
+type Book = {
+  title: string,
+  author: string,
+}
+
+const books: Book[] = [
   {
     title: 'Harry Potter and the Chamber of Secrets',
     author: 'J.K. Rowling',
@@ -9,4 +14,9 @@ const books = [
   },
 ];
 
-export default books;
+export default function filterBooks(keyword: string | undefined): Book[] {
+  if (keyword) {
+    return books.filter(it => it.title.includes(keyword));
+  }
+  return books;
+}
